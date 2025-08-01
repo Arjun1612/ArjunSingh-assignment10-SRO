@@ -1,0 +1,58 @@
+{
+  "timestamp": "2025-07-31T03:55:18.749498",
+  "authentication_tests": [
+    {
+      "test": "No token",
+      "status_code": 401,
+      "secure": true
+    },
+    {
+      "test": "Invalid token",
+      "status_code": 401,
+      "secure": true
+    },
+    {
+      "test": "Expired token",
+      "status_code": 401,
+      "secure": true
+    },
+    {
+      "test": "Malformed token",
+      "status_code": 401,
+      "secure": true
+    },
+    {
+      "test": "Valid token",
+      "status_code": 200,
+      "secure": true
+    }
+  ],
+  "rate_limiting_test": {
+    "rate_limiting_effective": false,
+    "successful_requests": 100,
+    "rate_limited_requests": 0
+  },
+  "data_exposure_tests": [
+    {
+      "scenario": "database_down",
+      "data_exposed": true,
+      "exposed_patterns": [
+        "password",
+        "database",
+        "connection",
+        "config"
+      ]
+    },
+    {
+      "scenario": "cache_unavailable",
+      "data_exposed": false,
+      "exposed_patterns": []
+    },
+    {
+      "scenario": "high_cpu_load",
+      "data_exposed": false,
+      "exposed_patterns": []
+    }
+  ],
+  "overall_security_score_percent": 77.77777777777779
+}
